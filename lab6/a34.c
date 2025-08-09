@@ -12,7 +12,7 @@ void push(char ch){
     if (top>= size-1){
         printf("Stack is overflow\n");
         return;
-    }
+    }   
     top=top+1;
     stack[top]=ch;
 }
@@ -59,6 +59,7 @@ void change(){
     scanf("%c",ch);
     stack[top-i+1]=ch;
 }
+
 
 
 
