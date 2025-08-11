@@ -39,41 +39,27 @@ void preorderTraversal(struct Node *save){
     printf("%d ",save->info);
     preorderTraversal(save->lptr);
     preorderTraversal(save->rptr);
+}
+int com(struct Node *root,struct Node *root2){
+    if(root==NULL || root2==NULL){
+        return root==root2;
+    }
+    return (root->info==root2->info) && com(root->lptr,root2->lptr) && com(root->rptr,root2->rptr);
 
 }
-
-void inOrder(struct Node *save){
-
-    if(save==NULL){
-        return;
-    }
- 
-    inOrder(save->lptr);
-    printf("%d ",save->info);
-    inOrder(save->rptr);
-
-} 
-void postOrder(struct Node *save){
-    
-    if(save==NULL){
-        return;
-    }
-    
-    postOrder(save->lptr);
-    postOrder(save->rptr);
-    printf("%d ",save->info);
-
-} 
-\
-
 void main(){
 
 
     struct Node* root=NULL;
     root=insertNode(root);
-    preorderTraversal(root);
+    struct Node* root2=NULL;
+    printf("second tree");
+    root2=insertNode(root2);
+    preorderTraversal(root2);
+    int result;
+    result=com(root,root2);
+    printf("tree is=%d",result);
 }
-
 //       1
 //     /  \/
 //    2    5

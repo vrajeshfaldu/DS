@@ -8,7 +8,7 @@ struct Node {
 };
 
 struct Node* insertTree(struct Node *root, int n) {
-    if (root == NULL) {
+    if (root == NULL){
         root = (struct Node *)malloc(sizeof(struct Node));
         root->info = n;
         root->lptr = NULL;
@@ -16,17 +16,23 @@ struct Node* insertTree(struct Node *root, int n) {
         return root;
     }
 
-    if (n < root->info) {
+    if(n<root->info){
+
         printf("Insert lptr of %d\n", root->info);
         root->lptr = insertTree(root->lptr, n);
-    } else if (n > root->info) {
-        printf("Insert rptr of %d\n", root->info);
-        root->rptr = insertTree(root->rptr, n);
+
     }
 
+    else if(n > root->info){
+
+        printf("Insert rptr of %d\n",root->info);
+        root->rptr=insertTree(root->rptr,n);
+
+    }
+    
     return root;
 }
-
+// 1st method
 struct Node * delete(struct Node *root,int n){
 
     if(root==NULL){
@@ -39,9 +45,16 @@ struct Node * delete(struct Node *root,int n){
         root->rptr=delete(root->rptr,n);
     }
     else{
+        // if(root->lptr == NULL && root->rptr == NULL){  
+        //     return NULL;
+
+        // }
         struct Node *temp=root->rptr;
+        struct Node *dummy=root;
         root=root->lptr;
+        free(dummy);
         struct Node *curr=root;
+
 
         while(curr->rptr!=NULL){
             curr=curr->rptr;
@@ -50,7 +63,7 @@ struct Node * delete(struct Node *root,int n){
     }
     return root;
 }
-
+// 2nd method 
 struct Node* deleteNode(struct Node* root, int info) {
 
     if (root == NULL){
@@ -135,8 +148,9 @@ void main() {
      displayTree(root);
 
     int p;
-    printf("Enter number which you want to delete:");
+    printf("\nEnter number which you want to delete:");
     scanf("%d",&p);
-    deleteNode(root,n);
+    // deleteNode(root,p);
+    delete(root,p);
     displayTree(root);
 }
