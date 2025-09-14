@@ -45,17 +45,16 @@ bool isSymmentricHelp(struct Node* lptr , struct Node* rptr){
         return lptr == rptr;
     }
     else if(lptr->info != rptr->info){
-        return false;
+        return false;   
     }
-    
-    return isSymmentricHelp(lptr->lptr,rptr->rptr) && isSymmentricHelp(lptr->rptr,rptr->lptr);
 
+    return isSymmentricHelp(lptr->lptr,rptr->rptr) && isSymmentricHelp(lptr->rptr,rptr->lptr);
 }
 
-bool  isSymmentric(struct Node* root){
+bool isSymmentric(struct Node* root){
 
    return root == NULL || isSymmentricHelp(root->lptr,root->rptr);
-}
+}   
 void main(){
     struct Node *root=NULL;
    root= insertNode(root);

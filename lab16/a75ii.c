@@ -8,7 +8,7 @@ struct Node {
 };
 
 struct Node* insertTree(struct Node *root, int n) {
-    if (root == NULL){
+    if(root == NULL){
         root = (struct Node *)malloc(sizeof(struct Node));
         root->info = n;
         root->lptr = NULL;
@@ -20,14 +20,12 @@ struct Node* insertTree(struct Node *root, int n) {
 
         printf("Insert lptr of %d\n", root->info);
         root->lptr = insertTree(root->lptr, n);
-
     }
 
     else if(n > root->info){
 
         printf("Insert rptr of %d\n",root->info);
         root->rptr=insertTree(root->rptr,n);
-
     }
     
     return root;

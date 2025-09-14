@@ -60,9 +60,6 @@ void change(){
     stack[top-i+1]=ch;
 }
 
-
-
-
 void main (){
     int choice;
     char ch;

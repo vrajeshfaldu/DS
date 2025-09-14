@@ -51,12 +51,12 @@
 //     if(str[i]==' '){
 //         printf("Valid String");
 //         return 1;
-//     }
+// }
 
-//     else{
+//else{
 //         printf("Invalid String");
 //         return 0;
-//     }
+// }
 // }
 
 // void main(){
@@ -69,7 +69,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void reverse(char result[], int start, int end) {
+void reverse(char result[], int start, int end){
     while (start < end) {
         char temp = result[start];
         result[start] = result[end];
@@ -79,7 +79,7 @@ void reverse(char result[], int start, int end) {
     }
 }
 
-int isVowel(char ch) {
+int isVowel(char ch){
     return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
 }
 
@@ -88,7 +88,7 @@ void vowelAnxiety(char str[]) {
     int resIndex = 0;
 
     for (int i = 0; str[i] != '\0'; i++) {
-        if (isVowel(str[i])) {
+        if (isVowel(str[i])){
             // Reverse the entire result built so far
             reverse(result, 0, resIndex - 1);
             // Append the vowel itself
